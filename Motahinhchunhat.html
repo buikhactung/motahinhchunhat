@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="myCanvas" width="1366px" height="768px" style="border: 1px solid darkviolet"></canvas>
+<script>
+    let hinhChuNhat = function (long, short) {
+        this.long = long;
+        this.short = short;
+
+        this.dienTich = function () {
+            return long * short;
+        }
+        this.chuVi = function () {
+            return 2 * (long + short);
+        }
+
+        this.creatRec = function creatRec() {
+            let ctx = document.getElementById("myCanvas").getContext("2d");
+            ctx.beginPath();
+            ctx.strokeRect(300,400,this.long,this.short);
+            ctx.stroke();
+        }
+    }
+    hinhChuNhat();
+    var a = parseInt(prompt("Nhập chiều dài: "));
+    var b = parseInt(prompt("Nhập chiều rộng: "));
+    let HCN = new hinhChuNhat(a,b);
+    HCN.creatRec()
+    document.write("chu vi hinh chu nhat là: "+HCN.chuVi())
+    document.write("<br>")
+     document.write("dien tich hinh chu nhat la: "+HCN.dienTich())
+
+</script>
+</body>
+</html>
